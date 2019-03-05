@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Orbitron|Poiret+One|Radley|Reem+Kufi" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+
+
+var lettersJSON = {
+    "alphabet": [
+    {
+        "name": "А",
+        "type": "vowel",
+        "info": "1",
+        "soft_vowel": "no"
+    },
+    {
+        "name": "Б",
+        "type": "con",
+        "info": "2",
+        "paired": "yes",
+        "hard": "no",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+        {
+        "name": "В",
+        "type": "con",
+        "info": "3",
+        "paired": "yes",
+        "hard": "no",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+    {
+        "name": "Г",
+        "type": "con",
+        "info": "4",
+        "paired": "yes",
+        "hard": "no",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+        {
+        "name": "Д",
+        "type": "con",
+        "info": "5",
+        "paired": "yes",
+        "hard": "no",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+        {
+        "name": "Е",
+        "type": "vowel",
+        "info": "6",
+        "soft_vowel": "yes"
+        
+    },
+            {
+        "name": "Ё",
+        "type": "vowel",
+        "info": "7",
+        "soft_vowel": "yes"
+        
+    },
+    {
+        "name": "Ж",
+        "type": "con",
+        "info": "8",
+        "paired": "yes",
+        "hard": "yes",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+    {
+        "name": "З",
+        "type": "con",
+        "info": "9",
+        "paired": "yes",
+        "hard": "no",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+        {
+        "name": "И",
+        "type": "vowel",
+        "info": "10",
+        "soft_vowel": "yes"
+    },
+        {
+        "name": "Й",
+        "type": "con",
+        "info": "11",
+        "hard": "no",
+        "soft": "yes",
+        "voiceless": "no",
+        "always_voiced": "yes",
+        "always_voiceless":"no"
+    },
+        {
+        "name": "К",
+        "type": "con",
+        "info": "12",
+        "paired": "yes",
+        "hard": "no",
+        "soft": "no",
+        "voiceless": "yes",
+        "voiced": "no",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+
+        {
+        "name": "Л",
+        "type": "con",
+        "info": "13",
+        "hard": "no",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "yes",
+        "always_voiceless":"no"
+    },
+        {
+        "name": "М",
+        "type": "con",
+        "info": "14",
+                "hard": "no",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "yes",
+        "always_voiceless":"no"
+    },
+        {
+        "name": "Н",
+        "type": "con",
+        "info": "15",
+                "hard": "no",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "yes",
+        "always_voiceless":"no"
+    },
+        {
+        "name": "О",
+        "type": "vowel",
+        "info": "16",
+        "soft_vowel": "no"
+    },
+        {
+        "name": "П",
+        "type": "con",
+        "info": "17",
+        "paired": "yes",
+                "hard": "no",
+        "soft": "no",
+        "voiceless": "yes",
+        "voiced": "no",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+        {
+        "name": "Р",
+        "type": "con",
+        "info": "18",
+                "hard": "no",
+        "soft": "no",
+        "voiceless": "no",
+        "voiced": "yes",
+        "always_voiced": "yes",
+        "always_voiceless":"no"
+    },
+            {
+        "name": "С",
+        "type": "con",
+        "info": "19",
+        "paired": "yes",
+                "hard": "no",
+        "soft": "no",
+        "voiceless": "yes",
+        "voiced": "no",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+            {
+        "name": "Т",
+        "type": "con",
+        "info": "20",
+        "paired": "yes",
+                "hard": "no",
+        "soft": "no",
+        "voiceless": "yes",
+        "voiced": "no",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+            {
+        "name": "У",
+        "type": "vowel",
+        "info": "21",
+        "soft_vowel": "no"
+    },
+            {
+        "name": "Ф",
+        "type": "con",
+        "info": "22",
+        "paired": "yes",
+                "hard": "no",
+        "soft": "no",
+        "voiceless": "yes",
+        "voiced": "no",
+        "always_voiced": "no",
+        "always_voiceless":"no"
+    },
+            {
+        "name": "Х",
+        "type": "con",
+        "info": "8",
+                "hard": "no",
+        "soft": "no",
+        "voiceless": "yes",
+        "voiced": "no",
+        "always_voiced": "no",
+        "always_voiceless":"yes"
+    },
+            {
+        "name": "Ц",
+        "type": "con",
+        "info": "23",
+        "hard": "yes",
+        "soft": "no",
+        "voiceless": "yes",
+        "voiced": "no",
+        "always_voiced": "no",
+        "always_voiceless":"yes"
+    },
+            {
+        "name": "Ч",
+        "type": "con",
+        "info": "24",
+                "hard": "no",
+        "soft": "yes",
+        "voiceless": "yes",
+        "voiced": "yes",
+        "always_voiced": "no",
+        "always_voiceless":"yes"
+    },
+            {
+        "name": "Ш",
+        "type": "con",
+        "info": "25",
+        "paired": "yes",
+                "hard": "yes",
+        "soft": "no",
+        "voiceless": "yes",
+        "always_voiced": "no",
+        "always_voiceless":"yes"
+    },
+            {
+        "name": "Щ",
+        "type": "con",
+        "info": "26",
+        "hard": "no",
+        "soft": "yes",
+        "voiceless": "yes",
+        "voiced": "no",
+        "always_voiced": "no",
+        "always_voiceless":"yes"
+    },
+            {
+        "name": "ь",
+        "type": "con",
+        "info": "27",
+        "PROJ_ALLOC_NO": "49"
+    },
+            {
+        "name": "ы",
+        "type": "vowel",
+        "info": "28",
+        "soft_vowel": "no"
+    },
+            {
+        "name": "ъ",
+        "type": "con",
+        "info": "29",
+        "PROJ_ALLOC_NO": "49"
+    },
+            {
+        "name": "Э",
+        "type": "vowel",
+        "info": "30",
+        "soft_vowel": "no"
+    },
+            {
+        "name": "Ю",
+        "type": "vowel",
+        "info": "31",
+        "soft_vowel": "yes"
+    },
+            {
+        "name": "Я",
+        "type": "vowel",
+        "info": "32",
+        "soft_vowel": "yes"
+    },
+
+
+  ]
+}
+</script>
+
+</head>
+<body>
+    <section style="padding: 4rem;">
+      <div style="display: flex; justify-content: space-between;">
+        <span class="sort" id="all">Alphabet</span><span class="sort" id="vowels">Vowels</span><span class="sort" id="con">Cons</span><span id="paired">Paired Cons</span><span id="voiceless">Always Voiceless</span><span id="voiced">Always Voiceled</span><span id="hard">Always Hard</span>
+        <span id="soft">Always Soft</span>
+        
+      </div>
+      <div id="alphabet" style="display: flex; justify-content: space-between;">
+      </div>
+      <div id="">
+        <h2 id="content-header">Content</h2>
+        <div id="content">
+        </div>
+      </div>
+    <section>
+<script>
+
+var letters = JSON.parse(JSON.stringify(lettersJSON));
+
+Object.entries(letters.alphabet).map(([key, value]) => {
+      // here you have access to
+      // var alph = JSON.parse(JSON.stringify(value));
+        var name = JSON.parse(JSON.stringify(value));
+        console.log();
+        var alphabet = document.getElementById('alphabet');
+        var letter_title = document.createElement("h3");
+    letter_title.className = 'letter_title';
+    letter_title.innerHTML = name.name;
+        alphabet.appendChild(letter_title);
+
+
+    letter_title.addEventListener('click', function () {
+      var content = document.getElementById('content');
+       var content_header = document.getElementById('content-header');
+       content_header.innerHTML = name.name;
+      content.innerHTML = name.info;
+      console.log(content);
+    })
+});
+
+var sort = document.querySelectorAll('.sort');
+
+var choice;
+
+
+// for (var i = 0; i < sort.length; i++) {
+//   sort.addEventListener('click', function () {
+//      var choice = $(this).id;
+//      console.log(choice);
+
+//    });
+//  console.log(sort[i]); 
+ 
+// }
+
+// sort.forEach(function(element) {
+//   element.addEventListener('click', function () {
+//     var choice = element.id;
+//      console.log(choice); 
+//   });
+// });
+
+
+var all = document.getElementById('all');
+ // console.log(new_choice); 
+
+all.addEventListener('click', function () {
+  // console.log(choice);
+  alphabet.innerHTML = "";
+  Object.entries(letters.alphabet).map(([key, value]) => {
+      var alphabet = document.getElementById('alphabet');
+      var name = JSON.parse(JSON.stringify(value));
+
+  var let = JSON.parse(JSON.stringify(value));
+
+    var letter_title = document.createElement("h3");
+    letter_title.innerHTML = name.name;
+
+    alphabet.appendChild(letter_title);
+
+      letter_title.addEventListener('click', function () {
+        var content = document.getElementById('content');
+         var content_header = document.getElementById('content-header');
+         content_header.innerHTML = name.name;
+        content.innerHTML = name.info;
+        console.log(content);
+      })
+
+    
+});
+    });
+
+
+var vowels = document.getElementById('vowels');
+ // console.log(new_choice); 
+
+vowels.addEventListener('click', function () {
+  // console.log(choice);
+  alphabet.innerHTML = "";
+      var div1 = document.createElement("div");
+      div1.className = 'div1';
+      var div2 = document.createElement("div");
+      div2.className = 'div2';
+      alphabet.appendChild(div1);
+      alphabet.appendChild(div2);
+  Object.entries(letters.alphabet).map(([key, value]) => {
+      var alphabet = document.getElementById('alphabet');
+      var name = JSON.parse(JSON.stringify(value));
+
+
+  var let = JSON.parse(JSON.stringify(value));
+    if(let.type == 'vowel') {
+
+
+      if(let.soft_vowel == 'no') {
+            var letter_title = document.createElement("h3");
+              letter_title.innerHTML = name.name;
+
+             div1.appendChild(letter_title);
+              
+                letter_title.addEventListener('click', function () {
+                  var content = document.getElementById('content');
+                   var contediv1t_header = document.getElementById('content-header');
+                   content_header.innerHTML = name.name;
+                  content.innerHTML = name.info;
+                  console.log(content);
+                })
+
+      }
+      if(let.soft_vowel == 'yes') {
+            var letter_title = document.createElement("h3");
+              letter_title.innerHTML = name.name;
+
+              div2.appendChild(letter_title);
+              
+                letter_title.addEventListener('click', function () {
+                  var content = document.getElementById('content');
+                   var content_header = document.getElementById('content-header');
+                   content_header.innerHTML = name.name;
+                  content.innerHTML = name.info;
+                  console.log(content);
+                })
+
+      }
+
+
+    }
+});
+    });
+
+
+var con = document.getElementById('con');
+
+con.addEventListener('click', function () {
+  alphabet.innerHTML = "";
+  Object.entries(letters.alphabet).map(([key, value]) => {
+      var alphabet = document.getElementById('alphabet');
+      var name = JSON.parse(JSON.stringify(value));
+
+  var let = JSON.parse(JSON.stringify(value));
+    if(let.type == 'con') {
+    var letter_title = document.createElement("h3");
+    letter_title.innerHTML = name.name;
+
+    alphabet.appendChild(letter_title);
+    
+      letter_title.addEventListener('click', function () {
+        var content = document.getElementById('content');
+         var content_header = document.getElementById('content-header');
+         content_header.innerHTML = name.name;
+        content.innerHTML = name.info;
+        console.log(content);
+      })
+
+    }
+});
+    });
+
+var paired = document.getElementById('paired');
+
+paired.addEventListener('click', function () {
+  alphabet.innerHTML = "";
+        var div1 = document.createElement("div");
+      div1.className = 'div1';
+      var div2 = document.createElement("div");
+      div2.className = 'div2';
+      alphabet.appendChild(div1);
+      alphabet.appendChild(div2);
+  Object.entries(letters.alphabet).map(([key, value]) => {
+      var alphabet = document.getElementById('alphabet');
+      var name = JSON.parse(JSON.stringify(value));
+
+
+  var let = JSON.parse(JSON.stringify(value));
+    if(let.paired == 'yes') {
+
+
+      if(let.voiced == 'yes') {
+            var letter_title = document.createElement("h3");
+              letter_title.innerHTML = name.name;
+
+             div1.appendChild(letter_title);
+              
+                letter_title.addEventListener('click', function () {
+                  var content = document.getElementById('content');
+                   var contediv1t_header = document.getElementById('content-header');
+                   content_header.innerHTML = name.name;
+                  content.innerHTML = name.info;
+                  console.log(content);
+                })
+
+      }
+      if(let.voiceless == 'yes') {
+            var letter_title = document.createElement("h3");
+              letter_title.innerHTML = name.name;
+
+              div2.appendChild(letter_title);
+              
+                letter_title.addEventListener('click', function () {
+                  var content = document.getElementById('content');
+                   var content_header = document.getElementById('content-header');
+                   content_header.innerHTML = name.name;
+                  content.innerHTML = name.info;
+                  console.log(content);
+                })
+
+      }
+
+
+    }
+});
+    });
+
+
+var con = document.getElementById('con');
+
+con.addEventListener('click', function () {
+  alphabet.innerHTML = "";
+  Object.entries(letters.alphabet).map(([key, value]) => {
+      var alphabet = document.getElementById('alphabet');
+      var name = JSON.parse(JSON.stringify(value));
+
+  var let = JSON.parse(JSON.stringify(value));
+    if(let.type == 'con') {
+    var letter_title = document.createElement("h3");
+    letter_title.innerHTML = name.name;
+
+    alphabet.appendChild(letter_title);
+    
+      letter_title.addEventListener('click', function () {
+        var content = document.getElementById('content');
+         var content_header = document.getElementById('content-header');
+         content_header.innerHTML = name.name;
+        content.innerHTML = name.info;
+        console.log(content);
+      })
+
+    }
+});
+    });
+
+
+
+var voiceless = document.getElementById('voiceless');
+
+voiceless.addEventListener('click', function () {
+  alphabet.innerHTML = "";
+  Object.entries(letters.alphabet).map(([key, value]) => {
+      var alphabet = document.getElementById('alphabet');
+      var name = JSON.parse(JSON.stringify(value));
+
+  var let = JSON.parse(JSON.stringify(value));
+    if(let.always_voiceless == 'yes') {
+    var letter_title = document.createElement("h3");
+    letter_title.innerHTML = name.name;
+
+    alphabet.appendChild(letter_title);
+    
+      letter_title.addEventListener('click', function () {
+        var content = document.getElementById('content');
+         var content_header = document.getElementById('content-header');
+         content_header.innerHTML = name.name;
+        content.innerHTML = name.info;
+        console.log(content);
+      })
+
+    }
+});
+    });
+
+
+var voiced = document.getElementById('voiced');
+
+voiced.addEventListener('click', function () {
+  alphabet.innerHTML = "";
+  Object.entries(letters.alphabet).map(([key, value]) => {
+      var alphabet = document.getElementById('alphabet');
+      var name = JSON.parse(JSON.stringify(value));
+
+  var let = JSON.parse(JSON.stringify(value));
+    if(let.always_voiced == 'yes') {
+    var letter_title = document.createElement("h3");
+    letter_title.innerHTML = name.name;
+
+    alphabet.appendChild(letter_title);
+    
+      letter_title.addEventListener('click', function () {
+        var content = document.getElementById('content');
+         var content_header = document.getElementById('content-header');
+         content_header.innerHTML = name.name;
+        content.innerHTML = name.info;
+        console.log(content);
+      })
+
+    }
+});
+    });
+
+
+var hard = document.getElementById('hard');
+
+hard.addEventListener('click', function () {
+  alphabet.innerHTML = "";
+  Object.entries(letters.alphabet).map(([key, value]) => {
+      var alphabet = document.getElementById('alphabet');
+      var name = JSON.parse(JSON.stringify(value));
+
+  var let = JSON.parse(JSON.stringify(value));
+    if(let.hard == 'yes') {
+    var letter_title = document.createElement("h3");
+    letter_title.innerHTML = name.name;
+
+    alphabet.appendChild(letter_title);
+    
+      letter_title.addEventListener('click', function () {
+        var content = document.getElementById('content');
+         var content_header = document.getElementById('content-header');
+         content_header.innerHTML = name.name;
+        content.innerHTML = name.info;
+        console.log(content);
+      })
+
+    }
+});
+    });
+
+var soft = document.getElementById('soft');
+
+soft.addEventListener('click', function () {
+  alphabet.innerHTML = "";
+  Object.entries(letters.alphabet).map(([key, value]) => {
+      var alphabet = document.getElementById('alphabet');
+      var name = JSON.parse(JSON.stringify(value));
+
+  var let = JSON.parse(JSON.stringify(value));
+    if(let.soft == 'yes') {
+    var letter_title = document.createElement("h3");
+    letter_title.innerHTML = name.name;
+
+    alphabet.appendChild(letter_title);
+    
+      letter_title.addEventListener('click', function () {
+        var content = document.getElementById('content');
+         var content_header = document.getElementById('content-header');
+         content_header.innerHTML = name.name;
+        content.innerHTML = name.info;
+        console.log(content);
+      })
+
+    }
+});
+    });
+
+</script>
+
+</body>
+</html>
